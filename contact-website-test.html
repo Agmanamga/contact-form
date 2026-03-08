@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hubungi Kami</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --rust: #8b3a2a;
+      --muted: #7a7060;
+      --border: #d4c9b0;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 40px 20px;
+      background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(139,58,42,0.06) 0%, transparent 50%);
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 960px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      min-height: 580px;
+      box-shadow: 0 30px 80px rgba(26,26,46,0.15), 0 2px 8px rgba(26,26,46,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Left panel */
+    .panel-left {
+      background: var(--ink);
+      padding: 60px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-left::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 60px solid rgba(201,168,76,0.07);
+      top: -80px; left: -80px;
+    }
+
+    .panel-left::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 40px solid rgba(201,168,76,0.05);
+      bottom: 40px; right: -60px;
+    }
+
+    .brand-tag {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .panel-headline {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 0;
+    }
+
+    .panel-headline h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 42px);
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .panel-headline h1 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .panel-headline p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.55);
+      font-weight: 300;
+      max-width: 260px;
+    }
+
+    .divider-line {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(245,240,232,0.5);
+    }
+
+    .contact-info-item .icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Right panel */
+    .panel-right {
+      background: #fff;
+      padding: 60px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+      position: relative;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.2s; }
+    .form-group:nth-child(3) { animation-delay: 0.3s; }
+    .form-group:nth-child(4) { animation-delay: 0.4s; }
+
+    label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 1px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      z-index: 0;
+    }
+
+    .btn-submit:hover::after { transform: translateX(0); }
+    .btn-submit span { position: relative; z-index: 1; }
+
+    .btn-submit:hover { color: var(--ink); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Success message */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold-light);
+      border-radius: 1px;
+      margin-top: 16px;
+    }
+
+    .success-msg.show { display: block; animation: fadeUp 0.4s ease; }
+    .success-msg p { font-size: 14px; color: var(--ink); }
+    .success-msg strong { color: var(--gold); }
+
+    /* Loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(245,240,232,0.3);
+      border-top-color: var(--cream);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 680px) {
+      .page-wrapper { grid-template-columns: 1fr; }
+      .panel-left { padding: 44px 32px; }
+      .panel-right { padding: 44px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <!-- LEFT -->
+  <div class="panel-left">
+    <span class="brand-tag">PT. Nama Perusahaan</span>
+    <div class="panel-headline">
+      <div class="divider-line"></div>
+      <h1>Kami siap<br/>mendengar <em>Anda</em></h1>
+      <p>Kirimkan informasi kontak Anda dan tim kami akan segera menghubungi kembali dalam 1×24 jam.</p>
+    </div>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="icon">✉</div>
+        <span>info@perusahaan.co.id</span>
+      </div>
+      <div class="contact-info-item">
+        <div class="icon">☎</div>
+        <span>+62 21 1234 5678</span>
+      </div>
+      <div class="contact-info-item">
+        <div class="icon">⌖</div>
+        <span>Jakarta, Indonesia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="panel-right">
+    <h2 class="form-title">Formulir Kontak</h2>
+    <p class="form-subtitle">Isi data di bawah ini dan kami akan segera menghubungi Anda.</p>
+
+    <div id="contactForm">
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" />
+      </div>
+      <div class="form-group">
+        <label for="telepon">Nomor Telepon</label>
+        <input type="tel" id="telepon" placeholder="+62 812 3456 7890" />
+      </div>
+      <div class="form-group">
+        <label for="alamat">Alamat</label>
+        <input type="text" id="alamat" placeholder="Jl. Contoh No. 1, Kota" />
+      </div>
+      <div class="form-group">
+        <label for="pesan">Pesan (Opsional)</label>
+        <textarea id="pesan" placeholder="Tuliskan pesan atau kebutuhan Anda..."></textarea>
+      </div>
+
+      <button class="btn-submit" id="submitBtn" onclick="submitForm()">
+        <span id="btnText">Kirim Data</span>
+      </button>
+
+      <div class="success-msg" id="successMsg">
+        <p>✔ <strong>Data berhasil dikirim!</strong><br/>Terima kasih, kami akan segera menghubungi Anda.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // GANTI URL INI dengan URL dari deployment Google Apps Script
+  // ============================================================
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpjgZIesbsQ6NbLFKKA220cWWAnVuLNk76fPAg-wVPI1viYS0ss3kkdifVoekTRqAOnA/exec";
+
+  async function submitForm() {
+    const nama    = document.getElementById('nama').value.trim();
+    const telepon = document.getElementById('telepon').value.trim();
+    const alamat  = document.getElementById('alamat').value.trim();
+    const pesan   = document.getElementById('pesan').value.trim();
+
+    if (!nama || !telepon || !alamat) {
+      alert("⚠ Mohon isi Nama, Nomor Telepon, dan Alamat terlebih dahulu.");
+      return;
+    }
+
+    const btn     = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+
+    btn.disabled = true;
+    btnText.innerHTML = `<span class="spinner"></span> Mengirim...`;
+
+    const formData = new FormData();
+    formData.append('nama',    nama);
+    formData.append('telepon', telepon);
+    formData.append('alamat',  alamat);
+    formData.append('pesan',   pesan);
+
+    try {
+      await fetch(APPS_SCRIPT_URL, { method: 'POST', body: formData });
+
+      btnText.innerHTML = "Kirim Data";
+      btn.disabled = false;
+
+      document.getElementById('nama').value    = '';
+      document.getElementById('telepon').value = '';
+      document.getElementById('alamat').value  = '';
+      document.getElementById('pesan').value   = '';
+
+      const msg = document.getElementById('successMsg');
+      msg.classList.add('show');
+      setTimeout(() => msg.classList.remove('show'), 5000);
+
+    } catch (err) {
+      btnText.innerHTML = "Kirim Data";
+      btn.disabled = false;
+      alert("Terjadi kesalahan. Pastikan URL Apps Script sudah benar.");
+    }
+  }
+</script>
+
+</body>
+</html>
